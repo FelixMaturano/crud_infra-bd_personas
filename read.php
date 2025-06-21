@@ -5,7 +5,7 @@ if (!isset($_SESSION["Correo"])) {
     exit();
 }
 
-$sql = "SELECT id, Nombre, Apellido, Fecha_nacimiento, Sexo, Correo FROM personas"; 
+$sql = "SELECT id, Nombre, Apellido, Fecha_nacimiento, Sexo, Correo, nivel FROM personas"; 
 $resultado = $con->query($sql);
 ?>
 <style>
@@ -81,6 +81,7 @@ $resultado = $con->query($sql);
             <th width = "60px">Fecha_nacimiento</th>
             <th width = "10px">Sexo</th>
             <th width = "150px">Correo</th>
+            <th width = "10px">Nivel</th>
             <?php if($_SESSION['nivel'] == 1) { ?>
             <th>Operaciones</th>
             <?php } ?>
@@ -95,6 +96,7 @@ $resultado = $con->query($sql);
         <td><?php echo $row['Fecha_nacimiento'];?></td>
         <td><?php echo $row['Sexo'];?></td>
         <td><?php echo $row['Correo'];?></td>
+        <td><?php echo $row['nivel'];?></td>
         <!-- verificar 1 si es administrador me permita ver esto  de lo contrario no  -->
          <?php if($_SESSION['nivel'] == 1) {  ?>
         <td><button class="btn-editar"><a href="formeditar.php?id=<?php echo $row['id'];?>">Editar</a></button><button class="btn-eliminar"><a href = "delete.php?id=<?php echo $row['id'];?>">Eliminar</a></button></td>

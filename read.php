@@ -1,10 +1,10 @@
-<?php include("conexion.php");
-session_start();
-if (!isset($_SESSION["Correo"])) {
-    header("Location: formlogin.html");
-    exit();
-}
+<?php session_start();
+require("verificarsesion.php");
+?>
+<a href="cerrar.php" id="cerrar-sesion" class="btn-cerrar">Cerrar Sesión</a>
 
+<?php
+include("conexion.php");
 $sql = "SELECT id, Nombre, Apellido, Fecha_nacimiento, Sexo, Correo, nivel FROM personas"; 
 $resultado = $con->query($sql);
 ?>
@@ -69,10 +69,28 @@ $resultado = $con->query($sql);
     .btn-insertar:hover {
         background-color: #0056b3 !important;
     }
+    .btn-cerrar {
+        background: linear-gradient(90deg, #ff5858 0%, #f09819 100%);
+        color: #fff !important;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 22px;
+        font-size: 16px;
+        font-weight: 600;
+        text-decoration: none;
+        margin: 18px 0 18px 18px;
+        display: inline-block;
+        box-shadow: 0 2px 8px rgba(255,88,88,0.08);
+        cursor: pointer;
+        transition: background 0.2s, transform 0.2s;
+        margin-left: 568px;
+    }
+    .btn-cerrar:hover {
+        background: linear-gradient(90deg, #f09819 0%, #ff5858 100%);
+        transform: translateY(-2px) scale(1.03);
+    }
 </style>
-<?php if($_SESSION['nivel'] == 1) {  ?>
-<a href="forminsertar.html" class="btn-insertar" style="margin-left:560px; margin-bottom:18px;">Insertar</a>
- <?php } ?>
+
 <table style = "border-collapse: collapse" border="1"  class="container">
     <thead style = "background-color: green">
         <tr>
@@ -104,3 +122,7 @@ $resultado = $con->query($sql);
     </tr>
    <?php }?>
 </table>
+
+<?php if($_SESSION['nivel'] == 1) {  ?>
+<a href="forminsertar.html" class="btn-insertar" style="margin-left:560px; margin-bottom:18px;">Insertar</a>
+ <?php } ?>

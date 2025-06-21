@@ -1,0 +1,64 @@
+#div-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    border: none;
+    background: linear-gradient(135deg, #8ec5fc 0%, #e0c3fc 100%);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+    padding: 40px 32px 32px 32px;
+    margin-top: 120px;
+    border-radius: 24px;
+    width: 370px;
+    height: auto;
+    transition: box-shadow 0.3s;
+}
+#div-login:hover {
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.25);
+}
+h1 {
+    margin-top: 0;
+    margin-bottom: 24px;
+    color: #2d1869;
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+#correo {
+    margin-bottom: 16px;
+}
+input {
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 12px;
+    border: 1px solid #bdbdbd;
+    width: 90%;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.2s;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+input:focus {
+    border: 1.5px solid #7f53ac;
+    background: #f4f8ff;
+}
+#ingresar {
+    margin-top: 28px;
+    border-radius: 10px;
+    padding: 12px 0;
+    width: 100%;
+    background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    box-shadow: 0 2px 8px rgba(67,233,123,0.08);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+#ingresar:hover {
+    background: linear-gradient(90deg, #38f9d7 0%, #43e97b 100%);
+    transform: translateY(-2px) scale(1.03);
+}

@@ -15,8 +15,7 @@
 
     $row = $resultado->fetch_assoc();
     ?>
-
-    <form action="edit.php" method="post">
+    <form action="javascript:guardarEditar()" id="form-edit" method="post">
     <label for="Nombre">Nombres:</label>
     <input type="text" name="Nombre" value="<?php echo $row['Nombre'];?>">
     <br>
@@ -37,7 +36,8 @@
     <br>
     <input type="hidden" name="id" value="<?php echo $row['id'];?>">
 
-    <input type="submit" value="Guardar">
+    <input type="submit" value="Guardar" class="btn btn-info "style="margin-top:8px;">
     </form>
+  
 </body>
 </html>

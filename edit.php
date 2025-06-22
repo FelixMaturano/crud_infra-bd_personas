@@ -1,4 +1,5 @@
-<?php include("conexion.php");
+<?php 
+include("conexion.php");
 
 $Nombre = $_POST['Nombre'];
 $Apellido = $_POST['Apellido'];
@@ -7,17 +8,16 @@ $Sexo = $_POST['Sexo'];
 $Correo = $_POST['Correo'];
 $id = $_POST['id'];
 
-$stmt = $con->prepare('UPDATE personas SET Nombre = ?,Apellido=?, Fecha_nacimiento=?, Sexo=?, Correo=? WHERE id=?');
-// Vincular parametros 
+header('Content-Type: application/json');
+
+$stmt = $con->prepare('UPDATE personas SET Nombre = ?, Apellido=?, Fecha_nacimiento=?, Sexo=?, Correo=? WHERE id=?');
 $stmt->bind_param("sssssi", $Nombre, $Apellido, $Fecha_nacimiento, $Sexo, $Correo, $id);
 
-// Ejecutar la consulta
 if ($stmt->execute()){
-    echo "Registro Actualizado";
-}else{
-    echo "Error: ".$stmt->error;
+    echo json_encode(['success' => true, 'message' => 'Registro Actualizado']);
+} else {
+    echo json_encode(['success' => false, 'message' => 'Error: '.$stmt->error]);
 }
+
 $con->close();
 ?>
-
-<meta http-equiv="refresh" content="3;url=read.php">

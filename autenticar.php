@@ -10,7 +10,7 @@ if ($result->num_rows > 0) {
     echo "Usuario encontrado";
     $_SESSION['Correo'] = $correo;
     $_SESSION['nivel'] = $result->fetch_assoc()['nivel'];
-    header("Location:read.php");
+    header("Location:pagina.php");
 
 } else {
     echo "Error datos de autenticación incorrectos";

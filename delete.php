@@ -1,4 +1,8 @@
-<?php include("conexion.php");
+<?php 
+header('Content-Type: application/json');
+error_reporting(0); // Evita warnings/notices en la respuesta
+
+include("conexion.php");
 
 $id = $_GET['id'];
 
@@ -8,12 +12,12 @@ $stmt->bind_param("i",$id);
 
 //Ejecutar la consulta
 if($stmt->execute()){
-    echo "Registro Eliminado";
+    echo json_encode(['success' => true, 'message'=>"Registro Elinado"
+]);
 }else{
-    echo"Error:". $stmt->error;
+    echo json_encode(['success'=> false, 'message'=>"Error:".$stmt->error]);
 }
-
+$stmt->close();
 $con->close();
+exit;
 ?>
-
-<meta http-equiv="refresh" content="3;url=read.php">

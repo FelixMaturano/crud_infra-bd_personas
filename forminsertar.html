@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <form action="create.php" method="post">
+    <form action="javascript:guardarInsertar()" id="form-create" method="post">
         <label for="Nombre">Nombres:</label>
         <input type="text" name="Nombre">
         <br>
@@ -23,7 +25,14 @@
         <label for="Correo">Correo:</label>
         <input type="email" name="Correo">
         <br>
+        <label for="nivel">Nivel:</label>
+        <select name="nivel" required>
+            <option value="1">Administrador</option>
+            <option value="0" selected>Usuario normal</option>
+        </select>
+        <br>
         <input type="submit" value="guardar">
     </form>
 </body>
+
 </html>

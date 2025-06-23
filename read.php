@@ -60,15 +60,14 @@ $resultado = $con->query($sql);
                 <td><button type="button" class="btn btn-success" style="margin-right: 10px;"><a
                             href="javascript:editar('<?php echo $row['id'];?>')"
                             style='text-decoration: none; color:white; '>Editar</a></button><button type="button"
-                        class="btn btn-danger"><a href="delete.php?id=<?php echo $row['id']; ?>"
-                            style='text-decoration: none; color:white;'></a>Eliminar</a></button></td>
+                        class="btn btn-danger" onclick="eliminar('<?php echo $row['id']; ?>')">Eliminar</button></td>
             <?php } ?>
         </tr>
     <?php } ?>
 </table>
 
 <?php if ($_SESSION['nivel'] == 1) { ?>
-    <button type="button" class="btn btn-secondary" id="btn-insertar" style="margin-left:400px;position:absolute;"><a href="forminsertar.html"
+    <button type="button" class="btn btn-secondary" id="btn-insertar" style="margin-left:400px;position:absolute;"><a href="javascript:insertar()"
             style='text-decoration: none; color:white;'>Insertar</a></button>
 <?php } ?>
 <script src="js/bootstrap.min.js"></script>

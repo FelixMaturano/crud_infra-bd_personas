@@ -8,15 +8,16 @@ $Sexo = $_POST['Sexo'];
 $Correo = $_POST['Correo'];
 $id = $_POST['id'];
 
-header('Content-Type: application/json');
 
 $stmt = $con->prepare('UPDATE personas SET Nombre = ?, Apellido=?, Fecha_nacimiento=?, Sexo=?, Correo=? WHERE id=?');
 $stmt->bind_param("sssssi", $Nombre, $Apellido, $Fecha_nacimiento, $Sexo, $Correo, $id);
 
 if ($stmt->execute()){
-    echo json_encode(['success' => true, 'message' => 'Registro Actualizado']);
+    echo json_encode(['success' => true,
+                             'message' => 'Registro Actualizado']);
 } else {
-    echo json_encode(['success' => false, 'message' => 'Error: '.$stmt->error]);
+    echo json_encode(['success' => false, 
+                            'message' => 'Error: '.$stmt->error]);
 }
 
 $con->close();
